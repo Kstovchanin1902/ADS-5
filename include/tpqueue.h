@@ -73,18 +73,11 @@ void TPQueue<T>::push (const T& inData)
 template <typename T>
 T TPQueue<T>::pop ()
 {
-    if (head)
-    {
         Item *temp = head -> next;
         T data = head -> data;
         delete head;
         head = temp;
         return data;
-    }
-    else
-    {
-        return (T) 0;
-    }
 }
 template <typename T>
 void TPQueue<T>::print () const
@@ -92,8 +85,6 @@ void TPQueue<T>::print () const
     Item *temp = head;
     while (temp)
     {
-        std::cout << "char = " << temp -> data.ch;
-        std::cout << " prior = " << temp -> data.prior << std::endl;
         temp = temp -> next;
     }
 }
