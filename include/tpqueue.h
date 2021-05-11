@@ -11,18 +11,18 @@ class TPQueue {
             Item* next;
         };
     public:
-        LListQueue ():head(nullptr), tail(nullptr) {}
-        ~LListQueue ();
+        TPQueue ():head(nullptr), tail(nullptr) {}
+        ~TPQueue ();
         void push (const T&);
         T pop();
         void print() const;
     private:
-        LListQueue::Item* create (const T&);
+        TPQueue::Item* create (const T&);
         Item *head;
         Item *tail;
 };
 template <typename T>
-LListQueue<T>::~LListQueue ()
+TPQueue<T>::~TPQueue ()
 {
     while (head)
     {
@@ -30,7 +30,7 @@ LListQueue<T>::~LListQueue ()
     }
 }
 template <typename T>
-void LListQueue<T>::push (const T& inData)
+void TPQueue<T>::push (const T& inData)
 {
     if (head && tail)
     {
@@ -71,7 +71,7 @@ void LListQueue<T>::push (const T& inData)
     }
 }
 template <typename T>
-T LListQueue<T>::pop ()
+T TPQueue<T>::pop ()
 {
     if (head)
     {
@@ -87,7 +87,7 @@ T LListQueue<T>::pop ()
     }
 }
 template <typename T>
-void LListQueue<T>::print () const
+void TPQueue<T>::print () const
 {
     Item *temp = head;
     while (temp)
