@@ -88,6 +88,14 @@ void TPQueue<T>::print () const
         temp = temp -> next;
     }
 }
+template <typename T>
+typename TPQueue<T>::Item* TPQueue<T>::create(const T& data)
+{
+    Item *item = new Item;
+    item -> data = data;
+    item -> next = nullptr;
+    return item;
+}
 struct SYM {
   char ch;
   int  prior;
