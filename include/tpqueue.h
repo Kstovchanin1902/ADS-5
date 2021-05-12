@@ -5,18 +5,18 @@
 
 template<typename T>
 class TPQueue {
-   private:
+    private:
         struct Item {
             T data;
             Item* next;
         };
-   public:
+    public:
         TPQueue(): head(nullptr), tail(nullptr) {}
         ~TPQueue();
         void push(const T&);
         T pop();
         void print() const;
-   private:
+    private:
         TPQueue::Item* create(const T&);
         Item *head;
         Item *tail;
@@ -34,27 +34,24 @@ void TPQueue<T>::push(const T& inData) {
         int prior = inData.prior;
         if (head -> data.prior >= prior) {
             while (temp) {
-                if (temp -> next){
+                if (temp -> next) {
                     if (prior > temp -> next -> data.prior) {
                         Item *inner = create(inData);
                         inner -> next = temp -> next;
                         temp -> next = inner;
                         break;
                     }
-                }
-                else {
+                } else {
                     temp -> next = create(inData);
                     break;
                 }
                 temp = temp -> next;
             }
-        }
-        else {
+        } else {
             head = create(inData);
             head -> next = temp;
         }
-    }
-    else {
+    } else {
         head = create(inData);
         tail = head;
     }
@@ -70,8 +67,7 @@ T TPQueue<T>::pop() {
 template <typename T>
 void TPQueue<T>::print() const {
     Item *temp = head;
-    while (temp)
-    {
+    while (temp) {
         temp = temp -> next;
     }
 }
