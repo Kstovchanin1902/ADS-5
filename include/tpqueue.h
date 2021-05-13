@@ -10,14 +10,12 @@ class TPQueue {
         T data;
         Item* next;
     };
-    
  public:
     TPQueue(): head(nullptr), tail(nullptr) {}
     ~TPQueue();
     void push(const T&);
     T pop();
     void print() const;
-    
  private:
     TPQueue::Item* create(const T&);
     Item *head;
